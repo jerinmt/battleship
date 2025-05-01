@@ -1,8 +1,8 @@
 import { gameboard } from "./gameboard.js"
 
-const player = (function () {
-    const board = gameboard();
-})();
+//const player = (function () {
+//    const board = gameboard();
+//})();
 
 const computer = (function () {
     const board = gameboard();
@@ -27,28 +27,24 @@ const computer = (function () {
             isFree = remaining.includes(next);
             if((next >= 0) && isFree) {
                 remaining[next] = 100;
-                console.log('ai');
                 return next;
             }
             next = successfulHit + 10;
             isFree = remaining.includes(next);
             if((next < 100) && isFree) {
                 remaining[next] = 100;
-                console.log('ai');
                 return next;
             }
             next = successfulHit + 1;
             isFree = remaining.includes(next);
             if((next < 100) && isFree) {
                 remaining[next] = 100;
-                console.log('ai');
                 return next;
             }
             next = successfulHit - 1;
             isFree = remaining.includes(next);
             if((next >= 0) && isFree) {
                 remaining[next] = 100;
-                console.log('ai');
                 return next;
             }
         }
@@ -58,8 +54,69 @@ const computer = (function () {
                 isFree = remaining.includes(next);
             }
             remaining[next] = 100;
-            console.log('random');
             return next;
     }
-    return{attack}
+    const coordinates = [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+        10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 
+        20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 
+        30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 
+        40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 
+        50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 
+        60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 
+        70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 
+        80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 
+        90, 91, 92, 93, 94, 95, 96, 97, 98
+    ];
+    
+    const placeFleet = function () {
+        let ships = [[5], [4], [3], [3], [2], [2], [2]];
+        
+        let i = 0;
+        while(i < 7) {
+            let start = Math.floor(Math.random() * coordinates.length);
+            let direction = Math.floor(Math.random() * 4);
+            let temp = [start];
+            let flag = false;
+            for(let j = 1; j < ships[i][0]; j++) {
+                if(direction == 0 || direction == 2) {
+                    temp[j] = start + j;
+                } else {
+                    temp[j] = start + (j * 10);
+                }
+                if(!coordinates.includes(temp[j])) {
+                    flag = true;
+                }
+            }
+            if(flag) {
+                continue;
+            } else {
+                let index;
+                let k =0;
+                while(k < ships[i][0]) {
+                    index = coordinates.indexOf(temp[k]);
+                    coordinates.splice(index, 1);
+                    k+=1;        
+                }
+                ships[i] = [temp[0], temp[k-1]];
+                i += 1;
+            }
+        }
+        for(let i = 0; i < 7; i++) {
+            console.log(ships[i][0], ships[i][1]);
+            board.placeShip(`${i+1}`, ships[i][0], ships[i][1]);
+        }
+        board.showGrid();
+    }
+    return{attack, placeFleet, board}
 })();
+computer.placeFleet();
+computer.board.receiveAttack(1);
+computer.board.receiveAttack(2);
+computer.board.receiveAttack(3);
+computer.board.receiveAttack(4);
+computer.board.receiveAttack(5);
+computer.board.receiveAttack(6);
+computer.board.receiveAttack(7);
+computer.board.receiveAttack(8);
+//export {player, computer};

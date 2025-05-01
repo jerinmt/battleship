@@ -23,46 +23,46 @@ const gameboard = function () {
     const destroyer2 = ship('6', 2);
     const destroyer3 = ship('7', 2);
     const placeShip = function(ship, start, end) {
-        switch(ship.id) {
+        switch(ship) {
             case '1':
-                grid[start] = ship.id;
-                grid[end] = ship.id;
+                grid[start] = ship;
+                grid[end] = ship;
                 if((end-start) === 4) {
-                    grid[start+1] = ship.id;
-                    grid[start+2] = ship.id;
-                    grid[start+3] = ship.id;
+                    grid[start+1] = ship;
+                    grid[start+2] = ship;
+                    grid[start+3] = ship;
                 } else {
-                    grid[start+10] = ship.id;
-                    grid[start+20] = ship.id;
-                    grid[start+30] = ship.id;
+                    grid[start+10] = ship;
+                    grid[start+20] = ship;
+                    grid[start+30] = ship;
                 }
             break;
             case '2':
-                grid[start] = ship.id;
-                grid[end] = ship.id;
+                grid[start] = ship;
+                grid[end] = ship;
                 if((end-start) === 3) {
-                    grid[start+1] = ship.id;
-                    grid[start+2] = ship.id;
+                    grid[start+1] = ship;
+                    grid[start+2] = ship;
                 } else {
-                    grid[start+10] = ship.id;
-                    grid[start+20] = ship.id;
+                    grid[start+10] = ship;
+                    grid[start+20] = ship;
                 }
             break;
             case '3':
             case '4':
-                grid[start] = ship.id;
-                grid[end] = ship.id;
+                grid[start] = ship;
+                grid[end] = ship;
                 if((end-start) === 2) {
-                    grid[start+1] = ship.id;
+                    grid[start+1] = ship;
                 } else {
-                    grid[start+10] = ship.id;
+                    grid[start+10] = ship;
                 }
             break;
             case '5':
             case '6':
             case '7':
-                grid[start] = ship.id;
-                grid[end] = ship.id;
+                grid[start] = ship;
+                grid[end] = ship;
             break;
         }
     }
@@ -97,6 +97,7 @@ const gameboard = function () {
             break;
         }
         grid[cell] = 'H';
+        showGrid();
     }
     const isDefeated = function () {
         if(carrier.isSunk()) {
@@ -122,7 +123,10 @@ const gameboard = function () {
         }
         return false;
     }
-    return {placeShip, receiveAttack, isDefeated}
+    function showGrid() {
+        console.log(grid);
+    }
+    return {placeShip, receiveAttack, isDefeated, showGrid}
 }
 
 export {gameboard};
