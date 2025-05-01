@@ -1,5 +1,5 @@
-const ship = function (id, len) {
-    const id = id;
+const ship = function (num, len) {
+    const id = num;
     let life = len;
     let floating = true;
     const hit = function() {
