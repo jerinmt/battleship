@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    background-color: rgb(1, 32, 32);
+}
+header {
+    color: white;
+    text-align: center;
+    background-color: rgb(77, 77, 187);
+}
+dialog {
+    margin: auto;
+    padding: 40px;
+    border: 4px solid greenyellow;
+    border-radius: 8px;
+    text-align: center;
+}
+button {
+    margin-top: 20px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: blue;
+    color: greenyellow;
+    font-size: large;
+}
+button:hover {
+    opacity: 0.9;
+}
+button:active {
+    opacity: 0.7;
+}
+main {
+    margin-top: 30px;
+    justify-content: center;
+    display: flex;
+    gap: 50px;
+}
+.playerFleet, 
+.computerFleet {
+    display: grid;
+    grid-template-columns: repeat(10, 45px);
+    grid-template-rows: 45px repeat(10, 45px);
+}
+.hiddenFleet {
+    display: none;
+}
+h4 {
+    grid-column-start: 1;
+    grid-column-end: 11;
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+}
+.gridCells {
+    background-color: rgb(2, 138, 180);
+    width: 42px;
+    height: 42px;
+}
+#p5ship {
+    margin: 5px;
+    position: relative;
+    cursor: move;
+    z-index: 2;
+}
+#p4ship {
+    margin: 5px;
+    position: relative;
+    cursor: move;
+    z-index: 2;
+}
+#p3ship1 {
+    margin: 5px;
+    position: relative;
+    cursor: move;
+    z-index: 2;
+}
+#p3ship2 {
+    margin: 5px;
+    position: relative;
+    cursor: move;
+    z-index: 2;
+}
+#p2ship1 {
+    margin: 5px;
+    position: relative;
+    cursor: move;
+    z-index: 2;
+}
+#p2ship2 {
+    margin: 5px;
+    position: relative;
+    cursor: move;
+    z-index: 2;
+}
+#p2ship3 {
+    margin: 5px;
+    position: relative;
+    cursor: move;
+    z-index: 2;
+}
