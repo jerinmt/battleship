@@ -7,7 +7,9 @@ The computer is able to place the ships and also if there is a hit it will targe
 
 Now I have to implement the UI. And then the gameflow.
 
-Designed the gameboard and overall look. Created images for the ships, implemented drag and drop to place the ships in the beginning. 
-Need to implement avoiding overlap, out of bounds, and rotation.
+Designed the gameboard and overall look. Created images for the ships.
+Need to implement the placement of ships for the player.
 
-Then implement the placement input and start the gameflow.
+Implemented the placement of player ships.
+
+Next is to implement the gameflow.

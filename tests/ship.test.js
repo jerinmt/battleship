@@ -1,4 +1,4 @@
-import { ship } from "./ship.js";
+import { ship } from "../src/ship.js";
 
 const carrier = ship(2);
 carrier.hit();

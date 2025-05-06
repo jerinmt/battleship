@@ -1,8 +1,9 @@
 import { gameboard } from "./gameboard.js"
 
-//const player = (function () {
-//    const board = gameboard();
-//})();
+const player = (function () {
+    const board = gameboard();
+    return {board}
+})();
 
 const computer = (function () {
     const board = gameboard();
@@ -103,20 +104,12 @@ const computer = (function () {
             }
         }
         for(let i = 0; i < 7; i++) {
-            console.log(ships[i][0], ships[i][1]);
             board.placeShip(`${i+1}`, ships[i][0], ships[i][1]);
         }
         board.showGrid();
     }
     return{attack, placeFleet, board}
 })();
-computer.placeFleet();
-computer.board.receiveAttack(1);
-computer.board.receiveAttack(2);
-computer.board.receiveAttack(3);
-computer.board.receiveAttack(4);
-computer.board.receiveAttack(5);
-computer.board.receiveAttack(6);
-computer.board.receiveAttack(7);
-computer.board.receiveAttack(8);
-//export {player, computer};
+//computer.placeFleet();
+
+export {player, computer};

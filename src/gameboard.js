@@ -22,47 +22,37 @@ const gameboard = function () {
     const destroyer1 = ship('5', 2);
     const destroyer2 = ship('6', 2);
     const destroyer3 = ship('7', 2);
-    const placeShip = function(ship, start, end) {
-        switch(ship) {
+    const placeShip = function(shipType, start, end) {
+        grid[start] = shipType;
+        grid[end] = shipType;        
+        switch(shipType) {
             case '1':
-                grid[start] = ship;
-                grid[end] = ship;
                 if((end-start) === 4) {
-                    grid[start+1] = ship;
-                    grid[start+2] = ship;
-                    grid[start+3] = ship;
+                    grid[start+1] = shipType;
+                    grid[start+2] = shipType;
+                    grid[start+3] = shipType;
                 } else {
-                    grid[start+10] = ship;
-                    grid[start+20] = ship;
-                    grid[start+30] = ship;
+                    grid[start+10] = shipType;
+                    grid[start+20] = shipType;
+                    grid[start+30] = shipType;
                 }
             break;
             case '2':
-                grid[start] = ship;
-                grid[end] = ship;
                 if((end-start) === 3) {
-                    grid[start+1] = ship;
-                    grid[start+2] = ship;
+                    grid[start+1] = shipType;
+                    grid[start+2] = shipType;
                 } else {
-                    grid[start+10] = ship;
-                    grid[start+20] = ship;
+                    grid[start+10] = shipType;
+                    grid[start+20] = shipType;
                 }
             break;
             case '3':
             case '4':
-                grid[start] = ship;
-                grid[end] = ship;
                 if((end-start) === 2) {
-                    grid[start+1] = ship;
+                    grid[start+1] = shipType;
                 } else {
-                    grid[start+10] = ship;
+                    grid[start+10] = shipType;
                 }
-            break;
-            case '5':
-            case '6':
-            case '7':
-                grid[start] = ship;
-                grid[end] = ship;
             break;
         }
     }
