@@ -1,4 +1,5 @@
 import { colorShips } from './colorShips.js';
+import { gameFlow } from './gameFlow.js';
 import { player } from './player.js';
 
 const coordinates = {
@@ -33,6 +34,7 @@ function initialiseBoards() {
             coordinates.list.push(cellNum);
             coordinates.required.push(cellNum);
         }
+        colorShips(coordinates.list);
     }
     function shipPlace(cellNum, index, difference, direction) {
         let shipType;
@@ -173,13 +175,18 @@ function initialiseBoards() {
         divSquare2[i] = document.createElement("div");
         container2.appendChild(divSquare2[i]);
         divSquare2[i].classList.add("gridCells");
+        divSquare2[i].dataset.cellid = i;
     }
     let start = document.querySelector('main > button');
     start.style.alignSelf = 'center';
     start.addEventListener('click', () => {
-        start.style.display = 'none';
-        container2.classList.remove('hiddenFleet');
+        if(coordinates.remain.length == 0) {
+            start.style.display = 'none';
+            container2.classList.remove('hiddenFleet');
+            document.querySelector('.info').style.display = 'none';
+            gameFlow();
+        }
     },false);
 }
 
-export {initialiseBoards, coordinates};
+export {initialiseBoards};

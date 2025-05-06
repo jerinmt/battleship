@@ -69,10 +69,11 @@ const computer = (function () {
         80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 
         90, 91, 92, 93, 94, 95, 96, 97, 98
     ];
-    
+    const registerHit = function(cell) {
+        successfulHit = cell;
+    }
     const placeFleet = function () {
         let ships = [[5], [4], [3], [3], [2], [2], [2]];
-        
         let i = 0;
         while(i < 7) {
             let start = Math.floor(Math.random() * coordinates.length);
@@ -106,10 +107,9 @@ const computer = (function () {
         for(let i = 0; i < 7; i++) {
             board.placeShip(`${i+1}`, ships[i][0], ships[i][1]);
         }
-        board.showGrid();
     }
-    return{attack, placeFleet, board}
+    return{attack, placeFleet, board, registerHit}
 })();
-//computer.placeFleet();
+
 
 export {player, computer};

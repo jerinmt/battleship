@@ -5,7 +5,6 @@ const ship = function (num, len) {
     const hit = function() {
         if(life > 0) {
             life -= 1;
-            isSunk();
         }
         else {
             life = 0;

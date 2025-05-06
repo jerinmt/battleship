@@ -13,3 +13,7 @@ Need to implement the placement of ships for the player.
 Implemented the placement of player ships.
 
 Next is to implement the gameflow.
+
+Implemented the gameflow. The game is working.
+
+Project completed.

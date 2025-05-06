@@ -62,45 +62,11 @@ h4 {
     width: 42px;
     height: 42px;
 }
-#p5ship {
-    margin: 5px;
-    position: relative;
-    cursor: move;
-    z-index: 2;
-}
-#p4ship {
-    margin: 5px;
-    position: relative;
-    cursor: move;
-    z-index: 2;
-}
-#p3ship1 {
-    margin: 5px;
-    position: relative;
-    cursor: move;
-    z-index: 2;
-}
-#p3ship2 {
-    margin: 5px;
-    position: relative;
-    cursor: move;
-    z-index: 2;
-}
-#p2ship1 {
-    margin: 5px;
-    position: relative;
-    cursor: move;
-    z-index: 2;
-}
-#p2ship2 {
-    margin: 5px;
-    position: relative;
-    cursor: move;
-    z-index: 2;
-}
-#p2ship3 {
-    margin: 5px;
-    position: relative;
-    cursor: move;
-    z-index: 2;
+.info {
+    background-color: palegoldenrod;
+    color: brown;
+    text-align: center;
+    padding: 50px;
+    width: 250px;
+    height: fit-content;
 }

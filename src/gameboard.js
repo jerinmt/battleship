@@ -60,10 +60,10 @@ const gameboard = function () {
         switch(grid[cell]) {
             case 'H':
             case 'X':
-                return;
+                return 0;
             case '0':
                 grid[cell] = 'X';
-                return;
+                return 1;
             case '1':
                 carrier.hit();
             break;
@@ -87,36 +87,22 @@ const gameboard = function () {
             break;
         }
         grid[cell] = 'H';
-        showGrid();
+        return 2;
     }
     const isDefeated = function () {
-        if(carrier.isSunk()) {
-            return true;
-        }
-        if(battleship.isSunk()) {
-            return true;
-        }
-        if(cruiser1.isSunk()) {
-            return true;
-        }
-        if(cruiser2.isSunk()) {
-            return true;
-        }
-        if(destroyer1.isSunk()) {
-            return true;
-        }
-        if(destroyer2.isSunk()) {
-            return true;
-        }
-        if(destroyer3.isSunk()) {
+        let status1 = carrier.isSunk();
+        let status2 = battleship.isSunk();
+        let status3 = cruiser1.isSunk();
+        let status4 = cruiser2.isSunk();
+        let status5 = destroyer1.isSunk();
+        let status6 = destroyer2.isSunk();
+        let status7 = destroyer3.isSunk();
+        if(status1 && status2 && status3 && status4 && status5 && status6 && status7) {
             return true;
         }
         return false;
     }
-    function showGrid() {
-        console.log(grid);
-    }
-    return {placeShip, receiveAttack, isDefeated, showGrid}
+    return {placeShip, receiveAttack, isDefeated}
 }
 
 export {gameboard};
